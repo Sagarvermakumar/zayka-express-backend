@@ -12,9 +12,9 @@ export const sendToken = (res, user, message, statusCode = 200) => {
   res
     .status(statusCode)
     .cookie("token", token, {
-      httpOnly: true,
-      secure: false, // Change to true if using HTTPS
-      sameSite: "lax", // Use 'none' if frontend & backend are on different domains
+      httpOnly: false,
+      secure: true, // Change to true if using HTTPS
+      sameSite: "none", // Use 'none' if frontend & backend are on different domains
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days expiration
     })
     .json({
