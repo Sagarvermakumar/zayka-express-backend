@@ -7,10 +7,9 @@ export const sendToken = (res, user, message, statusCode = 200) => {
     .status(statusCode)
     .cookie("token", token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production", 
-        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", 
-        maxAge: 7 * 24 * 60 * 60 * 1000,
-        path: "/",
+        secure: false, // Change to true if using HTTPS
+        sameSite: "lax", // Use 'none' if frontend & backend are on different domains
+        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days expiration
   })
     .json({
       success: true,
@@ -18,3 +17,5 @@ export const sendToken = (res, user, message, statusCode = 200) => {
       user,
     });
 };
+
+
