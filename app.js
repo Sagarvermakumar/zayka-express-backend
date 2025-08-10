@@ -16,7 +16,7 @@ config({
 });
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://f84f8975a0a7.ngrok-free.app"
+"https://zayka-express-six.vercel.app"
 ];
 
 app.use(
